@@ -251,5 +251,17 @@ public interface WavFactory extends EFactory {
 	 * @generated
 	 */
 	WavPackage getWavPackage();
+
+	ChunkDataList createChunkDataListUpperCase();
+
+	ChunkDataListTypeIcrd createChunkDataListTypeIcrd();
+
+	ChunkAfsp createChunkAfsp();
+
+	ChunkDataListTypeIcmt createChunkDataListTypeIcmt();
+
+	ChunkDataListTypeIsft createChunkDataListTypeIsft();
+
+	ChunkDataListTypeIcop createChunkDataListTypeIcop();
 	
 } //WavFactory

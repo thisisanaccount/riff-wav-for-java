@@ -21,6 +21,7 @@
 	</build>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>org.eclipse.emf</groupId>
 			<artifactId>org.eclipse.emf.common</artifactId>
@@ -31,11 +32,20 @@
 			<artifactId>org.eclipse.emf.ecore</artifactId>
 			<version>${emf-version}</version>
 		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit-version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<emf-version>2.11.0-v20150123-0347</emf-version>
+		<junit-version>4.12</junit-version>
 	</properties>
 
 </project>

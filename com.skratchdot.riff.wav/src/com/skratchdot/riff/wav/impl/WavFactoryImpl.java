@@ -30,10 +30,15 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import com.skratchdot.riff.wav.Channel;
+import com.skratchdot.riff.wav.ChunkAfsp;
 import com.skratchdot.riff.wav.ChunkCue;
 import com.skratchdot.riff.wav.ChunkData;
 import com.skratchdot.riff.wav.ChunkDataList;
 import com.skratchdot.riff.wav.ChunkDataListTypeID;
+import com.skratchdot.riff.wav.ChunkDataListTypeIcmt;
+import com.skratchdot.riff.wav.ChunkDataListTypeIcop;
+import com.skratchdot.riff.wav.ChunkDataListTypeIcrd;
+import com.skratchdot.riff.wav.ChunkDataListTypeIsft;
 import com.skratchdot.riff.wav.ChunkDataListTypeLabel;
 import com.skratchdot.riff.wav.ChunkDataListTypeLabeledText;
 import com.skratchdot.riff.wav.ChunkDataListTypeNote;
@@ -742,6 +747,36 @@ public class WavFactoryImpl extends EFactoryImpl implements WavFactory {
 	@Deprecated
 	public static WavPackage getPackage() {
 		return WavPackage.eINSTANCE;
+	}
+
+	public ChunkDataList createChunkDataListUpperCase() {
+		ChunkDataListUpperCaseImpl chunkDataList = new ChunkDataListUpperCaseImpl();
+		return chunkDataList;
+	}
+
+	public ChunkDataListTypeIcrd createChunkDataListTypeIcrd() {
+		ChunkDataListTypeIcrdImpl chunkDataListTypeIcrdImpl = new ChunkDataListTypeIcrdImpl();
+		return chunkDataListTypeIcrdImpl;
+	}
+
+	public ChunkAfsp createChunkAfsp() {
+		ChunkAfspImpl chunkAfspImpl = new ChunkAfspImpl();
+		return chunkAfspImpl;
+	}
+
+	public ChunkDataListTypeIcmt createChunkDataListTypeIcmt() {
+		ChunkDataListTypeIcmtImpl chunkDataListTypeIcmtImpl = new ChunkDataListTypeIcmtImpl();
+		return chunkDataListTypeIcmtImpl;
+	}
+
+	public ChunkDataListTypeIsft createChunkDataListTypeIsft() {
+		ChunkDataListTypeIsftImpl chunkDataListTypeIsftImpl = new ChunkDataListTypeIsftImpl();
+		return chunkDataListTypeIsftImpl;
+	}
+
+	public ChunkDataListTypeIcop createChunkDataListTypeIcop() {
+		ChunkDataListTypeIcopImpl chunkDataListTypeIcopImpl = new ChunkDataListTypeIcopImpl();
+		return chunkDataListTypeIcopImpl;
 	}
 
 } // WavFactoryImpl

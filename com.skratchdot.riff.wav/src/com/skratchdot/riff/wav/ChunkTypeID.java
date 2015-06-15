@@ -116,7 +116,8 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LIST(1953720684, "LIST", "Data List Chunk - \'list\'"), /**
+	LIST(1953720684, "LIST", "Data List Chunk - \'list\'"),
+	LIST_UPPERCASE(1414744396, "LIST", "Data List Chunk - \'LIST\'"), /**
 	 * The '<em><b>LTXT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,7 +167,12 @@ public enum ChunkTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WAVL(1819697527, "WAVL", "Wave List Chunk - \'wavl\'");
+	WAVL(1819697527, "WAVL", "Wave List Chunk - \'wavl\'"),
+	AFSP(1886611041, "AFSP", "AFSP Chunk - \'afsp\'"),
+	ICMT(1414349641, "ICMT", "Sub Chunk - \'ICMT\'"),
+	ISFT(1413894985, "ISFT", "Sub Chunk - \'ISFT\'"),
+	ICOP(1347371849, "ICOP", "Sub Chunk - \'ICOP\'"),
+	ICRD(1146241865, "ICRD", "Sub Chunk - \'ICRD\'");
 
 	/**
 	 * The '<em><b>UNKNOWN</b></em>' literal value.
@@ -318,6 +324,8 @@ public enum ChunkTypeID implements Enumerator {
 	 */
 	public static final int LIST_VALUE = 1953720684;
 
+	public static final int LIST_UPPERCASE_VALUE = 1414744396;
+
 	/**
 	 * The '<em><b>LTXT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -407,7 +415,11 @@ public enum ChunkTypeID implements Enumerator {
 	 * @ordered
 	 */
 	public static final int WAVL_VALUE = 1819697527;
-
+	public static final int ICRD_VALUE = 1146241865;
+	public static final int AFSP_VALUE = 1886611041;
+	public static final int ICMT_VALUE = 1414349641;
+	public static final int ISFT_VALUE = 1413894985;
+	public static final int ICOP_VALUE = 1347371849;
 	/**
 	 * An array of all the '<em><b>Chunk Type ID</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
@@ -492,12 +504,18 @@ public enum ChunkTypeID implements Enumerator {
 			case INST_VALUE: return INST;
 			case LABL_VALUE: return LABL;
 			case LIST_VALUE: return LIST;
+			case LIST_UPPERCASE_VALUE: return LIST_UPPERCASE;
 			case LTXT_VALUE: return LTXT;
 			case NOTE_VALUE: return NOTE;
 			case PLST_VALUE: return PLST;
 			case SINT_VALUE: return SINT;
 			case SMPL_VALUE: return SMPL;
 			case WAVL_VALUE: return WAVL;
+			case ICRD_VALUE: return ICRD;
+			case AFSP_VALUE: return AFSP;
+			case ICMT_VALUE: return ICMT;
+			case ISFT_VALUE: return ISFT;
+			case ICOP_VALUE: return ICOP;
 		}
 		return null;
 	}

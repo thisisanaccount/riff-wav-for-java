@@ -91,8 +91,9 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 	@Override
 	public void init(RIFFWave riffWave, ExtendedByteBuffer buf) throws RiffWaveException {
 		// Check Chunk Type ID
-		if(ChunkTypeID.get((int)buf.getUnsignedInt())!=this.getChunkTypeID())
-			throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral());
+		long read = buf.getUnsignedInt();
+		if(ChunkTypeID.get((int)read)!=this.getChunkTypeID())
+			throw new RiffWaveException("Invalid Chunk ID for "+this.getChunkTypeID().getLiteral() + ", value : [" + read + "]");
 
 		// Read in data size
 		long chunkSize = buf.getUnsignedInt();
@@ -101,8 +102,11 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 		long maxPointer = buf.position() + chunkSize;
 
 		// Check Chunk Data List Type ID
-		if(ChunkDataListTypeID.get((int)buf.getUnsignedInt())!=ChunkDataListTypeID.ADTL)
-			throw new RiffWaveException("Invalid Chunk Data List Type ID");
+		long read2 = buf.getUnsignedInt();
+		ChunkDataListTypeID typeID = ChunkDataListTypeID.get((int)read2);
+		this.setTypeID(typeID);
+//		if(ChunkDataListTypeID.get((int)read2)!=this.getTypeID())
+//			throw new RiffWaveException("Invalid Chunk Data List Type ID");
 
 		// loopPointer prevents an infinite loop if we try to parse a
 		// chunk and the filePointer doesn't advance for some reason
@@ -292,7 +296,7 @@ public class ChunkDataListImpl extends ChunkImpl implements ChunkDataList {
 
 		buf.putUnsignedInt(this.getChunkTypeIDValue());
 		buf.putUnsignedInt(this.getSize());
-		buf.putUnsignedInt(ChunkDataListTypeID.ADTL_VALUE);
+		buf.putUnsignedInt(this.getTypeID().getValue());
 		for(int i=0; i<this.getDataListChunks().size(); i++) {
 			Chunk currentChunk = this.getDataListChunks().get(i);
 			buf.putBytes(currentChunk.toByteArray());

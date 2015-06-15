@@ -48,7 +48,8 @@ public enum ChunkDataListTypeID implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ADTL(1819567201, "ADTL", "Associated Data Type List - \'adtl\'");
+	ADTL(1819567201, "ADTL", "Associated Data Type List - \'adtl\'"),
+	INFO(1330007625, "INFO", "Associated Data Type List - \'INFO\'");
 
 	/**
 	 * The '<em><b>UNKNOWN</b></em>' literal value.
@@ -79,6 +80,7 @@ public enum ChunkDataListTypeID implements Enumerator {
 	 * @ordered
 	 */
 	public static final int ADTL_VALUE = 1819567201;
+	public static final int INFO_VALUE = 1330007625;
 
 	/**
 	 * An array of all the '<em><b>Chunk Data List Type ID</b></em>' enumerators.
@@ -90,6 +92,7 @@ public enum ChunkDataListTypeID implements Enumerator {
 		new ChunkDataListTypeID[] {
 			UNKNOWN,
 			ADTL,
+			INFO,
 		};
 
 	/**
@@ -142,6 +145,7 @@ public enum ChunkDataListTypeID implements Enumerator {
 		switch (value) {
 			case UNKNOWN_VALUE: return UNKNOWN;
 			case ADTL_VALUE: return ADTL;
+			case INFO_VALUE: return INFO;
 		}
 		return null;
 	}

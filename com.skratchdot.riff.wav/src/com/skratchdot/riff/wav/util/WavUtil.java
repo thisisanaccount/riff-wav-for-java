@@ -124,6 +124,9 @@ public class WavUtil {
 				case ChunkTypeID.LIST_VALUE: 
 					returnChunk = WavFactory.eINSTANCE.createChunkDataList();
 					break;
+				case ChunkTypeID.LIST_UPPERCASE_VALUE: 
+					returnChunk = WavFactory.eINSTANCE.createChunkDataListUpperCase();
+					break;
 				case ChunkTypeID.LABL_VALUE: 
 					returnChunk = WavFactory.eINSTANCE.createChunkDataListTypeLabel();
 					break;
@@ -153,6 +156,21 @@ public class WavUtil {
 					break;
 				case ChunkTypeID.WAVL_VALUE: 
 					returnChunk = WavFactory.eINSTANCE.createChunkWaveList();
+					break;
+				case ChunkTypeID.ICRD_VALUE: 
+					returnChunk = WavFactory.eINSTANCE.createChunkDataListTypeIcrd();
+					break;
+				case ChunkTypeID.AFSP_VALUE: 
+					returnChunk = WavFactory.eINSTANCE.createChunkAfsp();
+					break;
+				case ChunkTypeID.ICMT_VALUE: 
+					returnChunk = WavFactory.eINSTANCE.createChunkDataListTypeIcmt();
+					break;
+				case ChunkTypeID.ISFT_VALUE: 
+					returnChunk = WavFactory.eINSTANCE.createChunkDataListTypeIsft();
+					break;
+				case ChunkTypeID.ICOP_VALUE: 
+					returnChunk = WavFactory.eINSTANCE.createChunkDataListTypeIcop();
 					break;
 				default: 
 					returnChunk = WavFactory.eINSTANCE.createChunkUnknown();

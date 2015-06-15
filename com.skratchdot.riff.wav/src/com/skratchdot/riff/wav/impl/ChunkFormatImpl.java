@@ -210,7 +210,7 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final byte[] EXTRA_FORMAT_BYTES_EDEFAULT = null;
+	protected static final byte[] EXTRA_FORMAT_BYTES_EDEFAULT = {};
 
 	/**
 	 * The cached value of the '{@link #getExtraFormatBytes() <em>Extra Format Bytes</em>}' attribute.
@@ -248,6 +248,7 @@ public class ChunkFormatImpl extends ChunkImpl implements ChunkFormat {
 		this.setAverageBytesPerSecond(buf.getUnsignedInt());
 		this.setBlockAlign(buf.getUnsignedShort());
 		this.setSignificantBitsPerSample(buf.getUnsignedShort());
+//		buf.getUnsignedShort();
 
 		if(this.getCompressionCodeValue()!=CompressionCode.COMPRESSION_CODE_1_VALUE || chunkSize!=this.getSize()) {
 			int numberOfExtraFormatBytes = buf.getUnsignedShort();
