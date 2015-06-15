@@ -22,6 +22,7 @@ import com.skratchdot.riff.wav.util.RiffWaveException;
 
 public class RiffWavTest {
 	private String l = "============================================";
+	private static final String MY_INFO = "I 改变 it!";
 
 	@Test
 	public void testParseChunk1() {
@@ -33,7 +34,7 @@ public class RiffWavTest {
 			printParseChunkExceptions(riffWave);
 			File file2 = new File("target/test-classes/1_.wav");
 			riffWave.write(file2);
-			addMyInfo(riffWave, "I changed it!", "target/test-classes/1_1.wav");
+			addMyInfo(riffWave, MY_INFO, "target/test-classes/1_1.wav");
 			System.out.println(l);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -101,7 +102,7 @@ public class RiffWavTest {
 			printParseChunkExceptions(riffWave);
 			File file2 = new File("target/test-classes/2_.wav");
 			riffWave.write(file2);
-			addMyInfo(riffWave, "I changed it!", "target/test-classes/2_2.wav");
+			addMyInfo(riffWave, MY_INFO, "target/test-classes/2_2.wav");
 			System.out.println(l);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
