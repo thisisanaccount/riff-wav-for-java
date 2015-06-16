@@ -210,8 +210,12 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 		// First read in the header info
 		if(ChunkTypeID.get((int)buf.getUnsignedInt())!=ChunkTypeID.RIFF)
 			throw new RiffWaveException("Invalid Header: missing RIFF");
-		if(buf.getUnsignedInt()!=buf.limit()-8)
-			throw new RiffWaveException("Invalid Header: chunk data size");
+		int readSize = (int) buf.getUnsignedInt();
+		int fileSize = buf.limit();
+		int expectSize = fileSize - 8;
+		if(readSize != expectSize) {
+			throw new RiffWaveException("Invalid Header: chunk data size! readSize : [" + readSize + "], expectSize : [" + expectSize + "]");
+		}
 		if(ChunkTypeID.get((int)buf.getUnsignedInt())!=ChunkTypeID.WAVE)
 			throw new RiffWaveException("Invalid Header: missing WAVE");
 
@@ -220,7 +224,7 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 		long loopPointer = 0;
 
 		// Loop through file reading in chunks
-		while(buf.position()<buf.limit() && buf.position()!=loopPointer) {
+		while(buf.position()<fileSize && buf.position()!=loopPointer) {
 			// If the filePointer doesn't advance in this loop iteration,
 			// then we'll break out of the loop
 			loopPointer = buf.position();
@@ -329,6 +333,7 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	
 		for(int i=0; i<this.getChunks().size(); i++) {
 			Chunk currentChunk = this.getChunks().get(i);
+			System.out.println("currentChunk : [" + currentChunk + "], size : [" + currentChunk.getSize() + "]");
 			buf.putBytes(currentChunk.toByteArray());
 			buf.putBlockAlign();
 		}
