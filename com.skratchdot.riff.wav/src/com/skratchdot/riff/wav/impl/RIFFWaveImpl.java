@@ -333,7 +333,7 @@ public class RIFFWaveImpl extends EObjectImpl implements RIFFWave {
 	
 		for(int i=0; i<this.getChunks().size(); i++) {
 			Chunk currentChunk = this.getChunks().get(i);
-			System.out.println("currentChunk : [" + currentChunk + "], size : [" + currentChunk.getSize() + "]");
+//			System.out.println("currentChunk : [" + currentChunk + "], size : [" + currentChunk.getSize() + "]");
 			buf.putBytes(currentChunk.toByteArray());
 			buf.putBlockAlign();
 		}
